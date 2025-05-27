@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pre-AP Chemistry Final Review</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --color-bg: #f5f7fa;
+      --color-card: #ffffff;
+      --color-primary: #1f6feb;
+      --color-text: #333333;
+      --color-muted: #5f6c7b;
+      --radius: 12px;
+      --transition: 0.4s;
+      --nav-width: 60px;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      display: grid;
+      grid-template-rows: 64px 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      grid-row: 1;
+      background: var(--color-primary);
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      color: #fff;
+    }
+    header h1 { font-size: 1.4rem; flex:1; }
+    main {
+      grid-row: 2;
+      display: grid;
+      grid-template-columns: var(--nav-width) 1fr;
+      overflow: hidden;
+    }
+    nav {
+      background: #fff;
+      border-right: 1px solid #e1e4e8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1rem;
+    }
+    nav button {
+      background: none;
+      border: none;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background var(--transition);
+      border-radius: var(--radius);
+    }
+    nav button:hover { background: var(--color-bg); }
+    nav button.active { background: var(--color-bg); }
+    nav button svg { fill: var(--color-primary); width:24px; height:24px; }
+    .content {
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+    .intro {
+      background: var(--color-card);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--color-card);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: transform var(--transition);
+      cursor: pointer;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+    @media (max-width: 768px) {
+      main { grid-template-columns: 1fr; }
+      nav { flex-direction: row; border-right: none; border-bottom:1px solid #e1e4e8; padding-bottom:0; }
+      nav button { margin:0 .5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pre-AP Chemistry Review</h1>
+  </header>
+  <main>
+    <nav>
+      <!-- Icons represent: Fundamentals, Calculations, States & Solutions, Kinetics & Equilibrium, Acid/Base -->
+      <button id="tab-fund" class="active" title="Fundamentals">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>
+      </button>
+      <button id="tab-calc" title="Calculations">
+        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg>
+      </button>
+      <button id="tab-states" title="States & Solutions">
+        <svg viewBox="0 0 24 24"><path d="M12 2l7 20H5z"/></svg>
+      </button>
+      <button id="tab-eq" title="Kinetics & Equilibrium">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+      </button>
+      <button id="tab-acid" title="Acid/Base">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8 2 4 6 4 10a8 8 0 0016 0c0-4-4-8-8-8z"/></svg>
+      </button>
+    </nav>
+    <section class="content">
+      <div id="fund" class="tab-content">
+        <div class="intro">
+          <h2>Fundamentals</h2>
+          <p>Key definitions and core facts: Nomenclature, polyatomic ions, bonding types, Lewis structures, oxidation numbers.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Nomenclature</h3><p>Naming ionic & covalent compounds, prefixes, stock system.</p></div>
+          <div class="card"><h3>Polyatomic Ions</h3><p>Common ions, charges, memorization tips.</p></div>
+          <div class="card"><h3>Bonding</h3><p>Ionic, covalent, hydrogen, metallic, and properties.</p></div>
+          <div class="card"><h3>Lewis Structures</h3><p>Dot diagrams, resonance, formal charge guidelines.</p></div>
+          <div class="card"><h3>Oxidation Numbers</h3><p>Rules and applications for redox reactions.</p></div>
+        </div>
+      </div>
+      <div id="calc" class="tab-content" style="display:none;">
+        <div class="intro">
+          <h2>Calculations</h2>
+          <p>Mass-mass, empirical formulas, percent composition, significant figures, percent yield, limiting reactant.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Stoichiometry</h3><p>Mole conversions, limiting reagent, yields, empirical formulas.</p></div>
+          <div class="card"><h3>Solutions</h3><p>Molarity, molality, dilutions, % by mass & volume, mole fraction.</p></div>
+          <div class="card"><h3>Molar Mass</h3><p>Calculating molecular weights and using periodic table.</p></div>
+          <div class="card"><h3>Significant Figures</h3><p>Rules for measurement precision and calculations.</p></div>
+        </div>
+      </div>
+      <div id="states" class="tab-content" style="display:none;">
+        <div class="intro">
+          <h2>States & Solutions</h2>
+          <p>Properties of solids, liquids, gases; gas laws; molar volume; Henry’s Law; colligative properties.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>States of Matter</h3><p>Characteristics of solids, liquids, gases, and phase changes.</p></div>
+          <div class="card"><h3>Gas Laws</h3><p>Boyle’s, Charles’, Ideal Gas Law, Dalton’s, Graham’s Law.</p></div>
+          <div class="card"><h3>Henry’s Law</h3><p>Gas solubility vs pressure, applications.</p></div>
+          <div class="card"><h3>Colligative Props.</h3><p>Boiling point elevation, freezing point depression, osmotic pressure.</p></div>
+        </div>
+      </div>
+      <div id="eq" class="tab-content" style="display:none;">
+        <div class="intro">
+          <h2>Kinetics & Equilibrium</h2>
+          <p>Reaction rates, activation energy, collision theory, equilibrium constants, Le Chatelier’s Principle.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Kinetics</h3><p>Rate laws, mechanisms, catalysts, energy diagrams.</p></div>
+          <div class="card"><h3>Equilibrium</h3><p>Dynamic equilibrium, K<sub>c</sub>, K<sub>p</sub>, Q, ICE tables.</p></div>
+          <div class="card"><h3>Le Chatelier</h3><p>Shifts due to concentration, pressure, temperature changes.</p></div>
+          <div class="card"><h3>Solubility Prod.</h3><p>K<sub>sp</sub> concepts and common ion effect.</p></div>
+        </div>
+      </div>
+      <div id="acid" class="tab-content" style="display:none;">
+        <div class="intro">
+          <h2>Acid/Base</h2>
+          <p>Definitions (Arrhenius/BL/Lewis), pH/pOH, strong vs weak, buffers, titrations.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Definitions</h3><p>Arrhenius, Brønsted-Lowry, Lewis acids and bases.</p></div>
+          <div class="card"><h3>pH & pOH</h3><p>Calculations, Kw, indicators.</p></div>
+          <div class="card"><h3>Buffers</h3><p>Henderson-Hasselbalch, capacity, range.</p></div>
+          <div class="card"><h3>Titrations</h3><p>Curve shapes, equivalence points, indicator choice.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const tabs = ['fund','calc','states','eq','acid'];
+    tabs.forEach(id => {
+      document.getElementById('tab-' + id).addEventListener('click', () => {
+        tabs.forEach(t => {
+          document.getElementById(t).style.display = 'none';
+          document.getElementById('tab-' + t).classList.remove('active');
+        });
+        document.getElementById(id).style.display = 'block';
+        document.getElementById('tab-' + id).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
